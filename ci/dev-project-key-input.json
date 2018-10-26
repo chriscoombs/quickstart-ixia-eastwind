@@ -1,7 +1,7 @@
 [
     {
         "ParameterKey": "QSS3BucketName",
-        "ParameterValue": "$[taskcat_autobucket]s"
+        "ParameterValue": "$[taskcat_autobucket]"
     },
     {
         "ParameterKey": "AvailabilityZones",
