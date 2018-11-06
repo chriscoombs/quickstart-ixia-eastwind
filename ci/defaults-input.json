@@ -1,7 +1,7 @@
 [
     {
-        "ParameterKey": "QSS3KeyPrefix",
-        "ParameterValue": "quickstart-microsoft-sql/"
+        "ParameterKey": "QSS3BucketName",
+        "ParameterValue": "$[taskcat_autobucket]"
     },
     {
         "ParameterKey": "AvailabilityZones",
