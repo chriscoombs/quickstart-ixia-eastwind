@@ -1,5 +1,4 @@
-# quickstart-ixia-eastwind
-## Ixia CloudLens with Eastwind on AWS Cloud
+# Ixia CloudLens with Eastwind on AWS Cloud
 
 This Quick Start sets up a CloudLens platform, using Eastwind Cloud Network Sensors to provide customers visibility across their AWS infrastructre.
 
@@ -16,5 +15,3 @@ Benefits include:
 To post feedback, submit feature ideas, or report bugs, use the **Issues** section of this GitHub repo.
 
 If you'd like to submit code for this Quick Start, please review the [AWS Quick Start Contributor's Kit](https://aws-quickstart.github.io/).
-
-
