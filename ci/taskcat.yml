@@ -7,23 +7,23 @@ global:
     - us-west-2
   reporting: true
 tests:
-  deploy-defaults:
+  ixia-defaults:
     parameter_input: defaults-input.json
     regions:
       - us-east-1
       - us-west-2
     template_file: cloudlens-master.template.json
-  custom-ami:
+  ixia-custom-ami:
     parameter_input: customami-input.json
     regions:
       - us-east-1
     template_file: cloudlens-master.template.json
-  dev-servername:
+  ixia-dev-servername:
     parameter_input: dev-project-key-input.json
     regions:
       - us-east-1
     template_file: cloudlens-master.template.json
-  custom-vpc-subnet:
+  ixia-custom-vpc-subnet:
     parameter_input: custom-vpc-subnet-input.json
     regions:
       - us-east-1
