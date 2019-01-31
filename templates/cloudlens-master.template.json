@@ -1,54 +1,54 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS CloudFormation template creates a CloudLens Quick Start environment with 2 Linux Instances. Copyright 2018 Keysight Technologies",
+    "Description": "AWS CloudFormation template creates a CloudLens Quick Start environment with 2 Linux instances. Copyright 2018 Keysight Technologies",
     "Parameters": {
         "VPCCIDR": {
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$",
             "ConstraintDescription": "CIDR block parameter must be in the form x.x.x.x/16-28",
             "Default": "10.0.0.0/16",
-            "Description": "CIDR Block for the VPC",
+            "Description": "CIDR block for the VPC.",
             "Type": "String"
         },
         "AvailabilityZones": {
-            "Description": "List of Availability Zones to use for the subnets in the VPC. Note: The logical order is preserved and 2 AZs must be selected.",
+            "Description": "List of Availability Zones to use for the subnets in the VPC. Select two zones. The logical order of your selections is preserved.",
             "Type": "List<AWS::EC2::AvailabilityZone::Name>"
         },
         "PublicSubnet1CIDR": {
             "Default": "10.0.128.0/20",
-            "Description": "CIDR Block for the public DMZ subnet 1 located in Availability Zone 1",
+            "Description": "CIDR block for the public (DMZ) subnet located in Availability Zone 1.",
             "Type": "String"
         },
         "PublicSubnet2CIDR": {
             "Default": "10.0.144.0/20",
-            "Description": "CIDR Block for the optional public DMZ subnet 2 located in Availability Zone 2",
+            "Description": "CIDR block for the optional public (DMZ) subnet located in Availability Zone 2.",
             "Type": "String"
         },
         "QSS3BucketName": {
             "AllowedPattern": "^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$",
             "ConstraintDescription": "Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
             "Default": "aws-quickstart",
-            "Description": "S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
+            "Description": "S3 bucket name for the Quick Start assets. The bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
             "Type": "String"
         },
         "QSS3KeyPrefix": {
             "AllowedPattern": "^[0-9a-zA-Z-/]*$",
-            "ConstraintDescription": "Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).",
+            "ConstraintDescription": "Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slashes (/).",
             "Default": "quickstart-ixia-eastwind/",
-            "Description": "S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).",
+            "Description": "S3 key prefix for the Quick Start assets. The key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slashes (/).",
             "Type": "String"
         },
         "CloudLensProjectKey": {
-            "Description": "CloudLens Project key for the source and tool instances",
+            "Description": "CloudLens project key for the source and tool instances.",
             "Type": "String",
             "MinLength": "40"
         },
         "CustomAMIId": {
             "Type": "String",
-            "Description" : "Optional AMI ID for source instance, if not specified Ubuntu 16.04 is default",
+            "Description" : "Optional AMI ID for source instance. If not specified, Ubuntu 16.04 is used.",
             "Default": ""
         },
         "SourceInstanceType" : {
-            "Description" : "EC2 instance type for source",
+            "Description" : "EC2 instance type for source instances.",
             "Type" : "String",
             "Default" : "m4.large",
             "AllowedValues" : [
@@ -159,7 +159,7 @@
             "ConstraintDescription" : "Must be a valid EC2 instance type."
         },
         "ToolInstanceType" : {
-            "Description" : "EC2 instance type for tool",
+            "Description" : "EC2 instance type for tool instances.",
             "Type" : "String",
             "Default" : "m4.large",
             "AllowedValues" : [
@@ -259,7 +259,7 @@
         },
         "SSHKeyName": {
             "Type": "AWS::EC2::KeyPair::KeyName",
-            "Description" : "Key from current region for SSH access to EC2 instances"
+            "Description" : "Key from current region for SSH access to EC2 instances."
         }
     },
     "Conditions": {
@@ -379,7 +379,7 @@
         "AWS::CloudFormation::Interface" : {
             "ParameterGroups" : [
                 {
-                    "Label": { "default": "VPC Configuration" },
+                    "Label": { "default": "VPC configuration" },
                     "Parameters": [
                         "AvailabilityZones",
                         "VPCCIDR",
@@ -388,38 +388,38 @@
                     ]
                 },
                 {
-                    "Label": { "default": "CloudLens Configuration" },
+                    "Label": { "default": "CloudLens configuration" },
                     "Parameters": [ "CloudLensProjectKey" ]
                 },
                 {
-                    "Label": { "default": "Source Instance Configuration" },
+                    "Label": { "default": "Source instance configuration" },
                     "Parameters": [ "CustomAMIId", "SourceInstanceType" ]
                 },
                 {
-                    "Label": { "default": "Tool Instance Configuration" },
+                    "Label": { "default": "Tool instance configuration" },
                     "Parameters": [ "ToolInstanceType" ]
                 },
                 {
-                    "Label": { "default": "SSH Configuration" },
+                    "Label": { "default": "SSH configuration" },
                     "Parameters": [ "SSHKeyName" ]
                 },
                 {
-                    "Label": { "default": "AWS Quick Start Configuration" },
+                    "Label": { "default": "AWS Quick Start configuration" },
                     "Parameters": ["QSS3BucketName", "QSS3KeyPrefix" ]
                 }
             ],
             "ParameterLabels": {
                 "AvailabilityZones": { "default": "Availability Zones" },
                 "VPCCIDR": { "default": "VPC CIDR" },
-                "PublicSubnet1CIDR": { "default": "Public Subnet 1 CIDR" },
-                "PublicSubnet2CIDR": { "default": "Public Subnet 2 CIDR" },
-                "QSS3BucketName": { "default": "Quick Start S3 Bucket Name" },
-                "QSS3KeyPrefix": { "default": "Quick Start S3 Key Prefix" },
-                "CloudLensProjectKey": { "default": "Project Key" },
-                "CustomAMIId": { "default": "Optional Source AMI" },
-                "SourceInstanceType": { "default": "Source Instance Type" },
-                "ToolInstanceType": { "default": "Tool Instance Type" },
-                "SSHKeyName": { "default": "SSH Configuration" }
+                "PublicSubnet1CIDR": { "default": "Public subnet 1 CIDR" },
+                "PublicSubnet2CIDR": { "default": "Public subnet 2 CIDR" },
+                "QSS3BucketName": { "default": "Quick Start S3 bucket name" },
+                "QSS3KeyPrefix": { "default": "Quick Start S3 key prefix" },
+                "CloudLensProjectKey": { "default": "Project key" },
+                "CustomAMIId": { "default": "Optional source AMI" },
+                "SourceInstanceType": { "default": "Source instance type" },
+                "ToolInstanceType": { "default": "Tool instance type" },
+                "SSHKeyName": { "default": "SSH configuration" }
             }
         }
     }

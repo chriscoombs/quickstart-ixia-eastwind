@@ -1,31 +1,31 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS CloudFormation template creates a CloudLens Quick Start environment with 2 Linux Instances in an existing VPC. Copyright 2018 Keysight Technologies",
+    "Description": "AWS CloudFormation template creates a CloudLens Quick Start environment with 2 Linux instances in an existing VPC. Copyright 2018 Keysight Technologies",
     "Parameters": {
         "VPCID": {
-            "Description": "ID of the VPC (e.g., vpc-0343606e)",
+            "Description": "ID of the VPC (e.g., vpc-0343606e).",
             "Type": "AWS::EC2::VPC::Id"
         },
         "PublicSubnet1ID": {
-            "Description": "ID of the public subnet 1 located in Availability Zone 1 (e.g., subnet-a0246dcd)",
+            "Description": "ID of the public subnet located in Availability Zone 1 (e.g., subnet-a0246dcd).",
             "Type": "AWS::EC2::Subnet::Id"
         },
         "PublicSubnet2ID": {
-            "Description": "ID of the public subnet 2 located in Availability Zone 2 (e.g., subnet-a0246dcd)",
+            "Description": "ID of the public subnet located in Availability Zone 2 (e.g., subnet-a0246dcd).",
             "Type": "AWS::EC2::Subnet::Id"
         },
         "CloudLensProjectKey": {
-            "Description": "CloudLens Project key for the source and tool instances",
+            "Description": "CloudLens project key for the source and tool instances.",
             "Type": "String",
             "MinLength": "40"
         },
         "CustomAMIId": {
             "Type": "String",
-            "Description" : "Optional AMI ID for source instance, if not specified Ubuntu 16.04 is default",
+            "Description" : "Optional AMI ID for source instance. If not specified, Ubuntu 16.04 is used.",
             "Default": ""
         },
         "SourceInstanceType" : {
-            "Description" : "EC2 instance type for source",
+            "Description" : "EC2 instance type for source instance.",
             "Type" : "String",
             "Default" : "m4.large",
             "AllowedValues" : [
@@ -136,7 +136,7 @@
             "ConstraintDescription" : "Must be a valid EC2 instance type."
         },
         "ToolInstanceType" : {
-            "Description" : "EC2 instance type for tool",
+            "Description" : "EC2 instance type for tool instance.",
             "Type" : "String",
             "Default" : "m4.large",
             "AllowedValues" : [
@@ -236,7 +236,7 @@
         },
         "SSHKeyName": {
             "Type": "AWS::EC2::KeyPair::KeyName",
-            "Description" : "Key from current region for SSH access to EC2 instances"
+            "Description" : "Key from current region for SSH access to EC2 instances."
         }
     },
     "Rules": {
@@ -789,31 +789,31 @@
                     ]
                 },
                 {
-                    "Label": { "default": "CloudLens Configuration" },
+                    "Label": { "default": "CloudLens configuration" },
                     "Parameters": [ "CloudLensProjectKey" ]
                 },
                 {
-                    "Label": { "default": "Source Instance Configuration" },
+                    "Label": { "default": "Source instance configuration" },
                     "Parameters": [ "CustomAMIId", "SourceInstanceType" ]
                 },
                 {
-                    "Label": { "default": "Tool Instance Configuration" },
+                    "Label": { "default": "Tool instance configuration" },
                     "Parameters": [ "ToolInstanceType" ]
                 },
                 {
-                    "Label": { "default": "SSH Configuration" },
+                    "Label": { "default": "SSH configuration" },
                     "Parameters": [ "SSHKeyName" ]
                 }
             ],
             "ParameterLabels": {
                 "VPCID": { "default": "VPC ID" },
-                "PublicSubnet1ID": { "default": "Public Subnet 1 ID" },
-                "PublicSubnet2ID": { "default": "Public Subnet 2 ID" },
-                "CloudLensProjectKey": { "default": "Project Key" },
-                "CustomAMIId": { "default": "Optional Source AMI" },
-                "SourceInstanceType": { "default": "Source Instance Type" },
-                "ToolInstanceType": { "default": "Tool Instance Type" },
-                "SSHKeyName": { "default": "SSH Configuration" }
+                "PublicSubnet1ID": { "default": "Public subnet 1 ID" },
+                "PublicSubnet2ID": { "default": "Public subnet 2 ID" },
+                "CloudLensProjectKey": { "default": "Project key" },
+                "CustomAMIId": { "default": "Optional source AMI" },
+                "SourceInstanceType": { "default": "Source instance type" },
+                "ToolInstanceType": { "default": "Tool instance type" },
+                "SSHKeyName": { "default": "SSH configuration" }
             }
         }
     }
