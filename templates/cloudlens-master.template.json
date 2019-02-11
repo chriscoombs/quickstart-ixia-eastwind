@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS CloudFormation template creates a CloudLens Quick Start environment with 2 Linux instances. Copyright 2018 Keysight Technologies",
+    "Description": "AWS CloudFormation template creates a CloudLens Quick Start environment with 2 Linux instances. Copyright 2018 Keysight Technologies. (qs-1pa9kcmi6)",
     "Parameters": {
         "VPCCIDR": {
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$",
